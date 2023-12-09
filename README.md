@@ -36,7 +36,7 @@ version: 1.0.0
 > 错误实例创建：`lightJoystick.joystick()`
 
 
-在插件中也只有一个方法:  **.joystick()**但是不是在这里用而是在后面
+在插件中也只有一个方法:  **.joystick()** 但是不是在这里用而是在后面
 
 
 > 正确实例创建：`var light = new lightJoystick();`
