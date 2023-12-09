@@ -43,8 +43,8 @@ version: 1.0.0
 
 有了实例并且创建了别名之后，你会发现页面上面都没有🤔，这时.joystick()方法就有用了，通过使用刚刚创建的别名light你可以在`var light = new lightJoystick();`之后使用`light.joystick()`方法来在屏幕上面绘制摇杆，这时，你就可以在页面上面看见摇杆了!只是此时，当你操作摇杆时，控制台会告诉你：**callback is not a function**，不过，请不要担心，你的每一步都没有错，只是摇杆不知道现在应该把它自己的位置告诉给谁，你只需把`light.joystick()`稍作修改，这件事就可以完美解决。在`light.joystick()`里面添加获取回调的函数
 `light.joystick(function(data) {//其他操作});`控制台就不会再告诉你 **callback is not a function**了，这里的其他操作，就是摇杆返回位置后对应的处理函数，在回调`function(data)`里面并非必须是data，你也可以换为别的，这里以data为例。回调一共会有三个类型分别为：[你定义的回调函数别名这里使用data]data.delta.x，[你定义的回调函数别名这里使用data]data.delta.y，[你定义的回调函数别名这里使用data]data.distance，你可以通过这几个回调知道摇杆对应的x轴位置，y轴位置和距离摇杆中心的距离。例如：
-`console.log("Distance: " + data.delta.x);//输出x轴位置`
-`console.log("Distance: " + data.delta.y);//输出y轴位置`
+`console.log("x: " + data.delta.x);//输出x轴位置`
+`console.log("y: " + data.delta.y);//输出y轴位置`
 `console.log("Distance: " + data.distance);//输出距离摇杆中心的位置`
 
 > 警告：请不要尝试直接使用data或者其他回调定义名来获取所有回调内容否则控制台会告诉你：[object Object]
