@@ -31,15 +31,18 @@ version: 1.0.0
 
 ##### 三，插件方法
 
-在使用插件时，你必须通过使用 new 关键字和构造函数来创建对象。在这种情况下，lightJoystick 是一个构造函数，通过 new lightJoystick() 创建一个新的 lightJoystick 实例对象，因为只有这样你才可以正常使用joystick插件。在插件中也只有一个方法:  **.joystick()**
+在使用插件时，你必须通过使用 new 关键字和构造函数来创建对象。在这种情况下，lightJoystick 是一个构造函数，通过 new lightJoystick() 创建一个新的 lightJoystick 实例对象，因为只有这样你才可以正常使用joystick插件。
 
 > 错误实例创建：`lightJoystick.joystick()`
 
 
+在插件中也只有一个方法:  **.joystick()** 但是不是在这里用而是在后面
+
+
 > 正确实例创建：`var light = new lightJoystick();`
 
-有了实例并且创建了别名之后，你会发现什么都没有发生🤔，这时.joystick()方法就有用了，通过使用刚刚创建的别名light你可以使用light.joystick()来在屏幕上面绘制摇杆，这时，你就可以看见摇杆了!只是此时，当你操作摇杆时，控制台会告诉你：**callback is not a function**，不要担心，你的每一步都没有错，只是摇杆不知道现在应该把它自己的位置告诉给谁，你只需把light.joystick()稍作修改，这件事就可以完美解决。在light.joystick()里面添加获取回调的函数
-`light.joystick(function(data) {//其他操作});`控制台就不会再告诉你 **callback is not a function**，这里的其他操作，就是摇杆返回位置后对应的处理函数了，在回调`function(data)`里面并非必须是data，你也可以换为别的，这里以data为例。回调一共会有三个分别为data.delta.x，data.delta.y，data.distance，你可以通过这几个回调知道摇杆对应的x轴位置，y轴位置和距离摇杆中心的距离。例如：
+有了实例并且创建了别名之后，你会发现页面上面都没有🤔，这时.joystick()方法就有用了，通过使用刚刚创建的别名light你可以在var light = new lightJoystick();之后使用 `light.joystick()` 方法来在屏幕上面绘制摇杆，这时，你就可以在页面上面看见摇杆了!只是此时，当你操作摇杆时，控制台会告诉你：**callback is not a function**，不过，请不要担心，你的每一步都没有错，只是摇杆不知道现在应该把它自己的位置告诉给谁，你只需把`light.joystick()`稍作修改，这件事就可以完美解决。在`light.joystick()`里面添加获取回调的函数
+`light.joystick(function(data) {//其他操作});`控制台就不会再告诉你 **callback is not a function**了，这里的其他操作，就是摇杆返回位置后对应的处理函数，在回调`function(data)`里面并非必须是data，你也可以换为别的，这里以data为例。回调一共会有三个类型分别为：[你定义的回调函数别名这里使用data]data.delta.x，[你定义的回调函数别名这里使用data]data.delta.y，[你定义的回调函数别名这里使用data]data.distance，你可以通过这几个回调知道摇杆对应的x轴位置，y轴位置和距离摇杆中心的距离。例如：
 `console.log("Distance: " + data.delta.x);//输出x轴位置`
 `console.log("Distance: " + data.delta.y);//输出y轴位置`
 `console.log("Distance: " + data.distance);//输出距离摇杆中心的位置`
@@ -95,4 +98,4 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ##### 六，工作室声明
-此框架由光猫工作室开发，一切问题请在[lightCatCode](https://lightCatCode.flarum.cloud)社区留言，或者发送邮件至zry110522@163.com。
+此框架由光猫工作室开发，一切问题请在lightCatCode社区留言，或者发送邮件至zry110522@163.com。
