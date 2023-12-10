@@ -27,7 +27,7 @@
 
 version: 1.0.0
 
-此版本具备一般摇杆的功能，但是这并不代表着它满足所有开发者对于游戏摇杆的需求，它具备一定的定制能力和适配能力，可以满足80%以上的摇杆需求，但是此版本是基于light-spring游戏需求开发的，所以大部分接口都是为了满足light-spring的开发需求，在后续的版本中可能会重新编写摇杆的功能。
+此版本具备一般摇杆的功能，但是这并不代表着它满足所有开发者对于游戏摇杆的需求，它具备一定的定制能力和适配能力，可以满足80%以上的摇杆需求，但是此版本是基于light-spring游戏需求开发的，所以大部分接口都是为了满足light-spring的开发需求而制作的。在后续的版本中可能会重新编写此摇杆的功能及其接口。
 
 ##### 三，插件方法
 
@@ -36,16 +36,22 @@ version: 1.0.0
 > 错误实例创建：`lightJoystick.joystick()`
 
 
-在插件中也只有一个方法:  **.joystick()** 但是不是在这里用而是在后面
+在上面的错误示例中，你会看到一个.joystick()方法，插件中也只有这一个核心方法:  **.joystick()** 只是这个方法不是像上面这个错误示例那样使用而是在创建了实例后使用。
 
 
 > 正确实例创建：`var light = new lightJoystick();`
 
 有了实例并且创建了别名之后，你会发现页面上面都没有🤔，这时.joystick()方法就有用了，通过使用刚刚创建的别名light你可以在`var light = new lightJoystick();`之后使用`light.joystick()`方法来在屏幕上面绘制摇杆，这时，你就可以在页面上面看见摇杆了!只是此时，当你操作摇杆时，控制台会告诉你：**callback is not a function**，不过，请不要担心，你的每一步都没有错，只是摇杆不知道现在应该把它自己的位置告诉给谁，你只需把`light.joystick()`稍作修改，这件事就可以完美解决。在`light.joystick()`里面添加获取回调的函数
-`light.joystick(function(data) {//其他操作});`控制台就不会再告诉你 **callback is not a function**了，这里的其他操作，就是摇杆返回位置后对应的处理函数，在回调`function(data)`里面并非必须是data，你也可以换为别的，这里以data为例。回调一共会有三个类型分别为：[你定义的回调函数别名这里使用data]data.delta.x，[你定义的回调函数别名这里使用data]data.delta.y，[你定义的回调函数别名这里使用data]data.distance，你可以通过这几个回调知道摇杆对应的x轴位置，y轴位置和距离摇杆中心的距离。例如：
-`console.log("x: " + data.delta.x);//输出x轴位置`
-`console.log("y: " + data.delta.y);//输出y轴位置`
+`light.joystick(function(data) {//其他操作});`控制台就不会再告诉你 **callback is not a function**了，这里的其他操作，就是摇杆返回位置后对应的处理函数，在回调`function(data)`里面并非必须是data，你也可以换为别的，这里以data为例。回调一共会有三个类型，分别为：
+- [你定义的回调函数别名，这里使用data]  _data.delta.x_
+- [你定义的回调函数别名，这里使用data]  _data.delta.y_
+- [你定义的回调函数别名，这里使用data]  _data.distance_
+你可以通过这几个回调知道摇杆对应的x轴位置，y轴位置和距离摇杆中心的距离。例如：
+`console.log("Distance: " + data.delta.x);//输出x轴位置`
+`console.log("Distance: " + data.delta.y);//输出y轴位置`
 `console.log("Distance: " + data.distance);//输出距离摇杆中心的位置`
+
+**此外，摇杆本身并不具备朝向计算功能，这也是为了提高插件的可定制度，如果你想要知道摇杆现在的指向角，你可以通过回调函数回调的x轴位置和y轴位置来计算它的偏向角：** `const angle = Math.atan2(data.delta.y, data.delta.x) * (180 / Math.PI);` 
 
 > 警告：请不要尝试直接使用data或者其他回调定义名来获取所有回调内容否则控制台会告诉你：[object Object]
 
