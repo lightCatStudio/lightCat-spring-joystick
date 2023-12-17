@@ -81,6 +81,7 @@ light.joystick(function(data) {
 > 注意：因为刚刚使用的是data作为形参示例，所以在示例输出时也要以形参data作为开头，如果你使用的是其他名字的形参，注意对其进行修改，例：你使用的形参名为info，当你想要得到摇杆方向时，你就应该使用：`info.direction`
 
 使用示例(输出摇杆的角度)：
+
 ```JavaScript
 var light = new lightJoystick();
 light.joystick(function(data) {
@@ -105,7 +106,7 @@ light.joystick(function(data) {
 | JOL | (空) | 摇杆容器距离左侧的位置 |
 | JOR | (空) | 摇杆容器距离右侧的位置 |
 | JOBG | rgba(255,255,255,0) | 摇杆容器的背景颜色 |
-| JOBGIM | (空) | 摇杆容器的背景图像 |
+| JOBGIM | (空) | 摇杆容器的背景图像，格式：url("地址") |
 | JOSD | 0px 0px 5px #D6D6D6 | 摇杆容器的阴影样式 |
 | JIBS | solid | 摇杆的边框样式 |
 | JIBW | 1px | 摇杆的边框宽度 |
@@ -113,7 +114,7 @@ light.joystick(function(data) {
 | JIBR | 50% | 摇杆的边框圆角半径 |
 | JISZ | 50px | 摇杆的尺寸 |
 | JIBG | rgba(255,255,255,1) | 摇杆的背景颜色 |
-| JIBGIM | (空) | 摇杆的背景图像 |
+| JIBGIM | (空) | 摇杆的背景图像，格式：url("地址") |
 | JISD | 0px 0px 5px #D6D6D6 | 摇杆的阴影样式 |
 | transitionout | 0.1 | 摇杆容器缩放的过渡时间(秒) |
 | transition | 0.2 | 摇杆返回虚拟摇杆中心时的过渡时间(秒) |
