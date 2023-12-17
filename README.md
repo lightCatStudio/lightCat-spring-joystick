@@ -149,6 +149,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ## 六，工作室声明
 
-[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=lightCatStudio&theme=dawnfox&hide_border=%E7%9C%9F&border_radius=10&locale=zh_Hans&date_format=n%2Fj%5B%2FY%5D)](https://git.io/streak-stats)
+[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=lightCatStudio&theme=ambient-gradient&hide_border=%E7%9C%9F&border_radius=10&locale=zh_Hans&date_format=n%2Fj%5B%2FY%5D)](https://git.io/streak-stats)
 
 此框架由光猫工作室开发，一切问题请在[lightCatCode](https://lightCatCode.flarum.cloud)社区留言，或者发送邮件至zry110522@163.com。
