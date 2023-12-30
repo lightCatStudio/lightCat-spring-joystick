@@ -80,6 +80,11 @@ light.joystick(function(data) {
 
 > 注意：因为刚刚使用的是data作为形参示例，所以在示例输出时也要以形参data作为开头，如果你使用的是其他名字的形参，注意对其进行修改，例：你使用的形参名为info，当你想要得到摇杆方向时，你就应该使用：`info.direction`
 
+此外，如果你想要移除摇杆，你可以调用：
+```JavaScript
+light.joystickClear();
+```
+
 使用示例(输出摇杆的角度)：
 
 ```JavaScript
